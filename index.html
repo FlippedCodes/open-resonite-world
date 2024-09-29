@@ -19,8 +19,7 @@
     if (sessionID) {
       window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`;
     } else {
-      const domain = `${window.location}`;
-      changeNotice(`No sessionID provided! Example: "${domain.slice(0, -1)}"?sessionID=S-U-h33tology:fitness`);
+      changeNotice(`No sessionID provided! Example: "${`${window.location}`.slice(0, -1)}?sessionID=S-U-h33tology:fitness`);
     }
   </script>
 </body>
