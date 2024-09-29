@@ -5,9 +5,10 @@
   <title>Resonite World Link Utility</title>
 </head>
 <body>
-  <pre>JS disabled! Please enable it for this utility to work.</pre>
+  <pre id="js-disabled-notice">JS disabled! Please enable it for this utility to work.</pre>
   <script>
-    const sessionID = 'S-U-h33tology:fitness'
+    // Hide the JS disabled notice
+    document.getElementById('js-disabled-notice').textContent = 'Redirecting...';
     window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`
   </script>
 </body>
