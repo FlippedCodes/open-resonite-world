@@ -12,6 +12,11 @@
     }
     // Hide the JS disabled notice
     changeNotice('Redirecting...');
+
+    // Extract sessionID from the current URL path and redirect to steam
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionID = urlParams.get('sessionID');
+    if (!sessionID) return changeNotice(`No sessionID provided! Example: "${window.location.slice(0, -1)}"?sessionID=S-U-h33tology:fitness`);
     window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`
   </script>
 </body>
