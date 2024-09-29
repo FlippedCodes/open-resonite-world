@@ -17,9 +17,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const sessionID = urlParams.get('sessionID');
     if (sessionID) {
-      window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`
+      window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`;
     } else {
-      changeNotice(`No sessionID provided! Example: "${window.location.slice(0, -1)}"?sessionID=S-U-h33tology:fitness`);
+      const domain = window.location;
+      changeNotice(`No sessionID provided! Example: "${domain.slice(0, -1)}"?sessionID=S-U-h33tology:fitness`);
     }
   </script>
 </body>
