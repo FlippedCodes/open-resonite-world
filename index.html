@@ -31,7 +31,7 @@
     }
     const lnl = sessionDetails.sessionURLs[0];
     if (lnl) {
-      window.location.href = `steam://rungameid/2519830//-Open ${lnl}`;
+      window.location.href = `steam://rungameid/2519830//-Open ${encodeURIComponent(lnl)}`;
     } else {
       const error = 'Session doesn\'t have a lnl-net link. Can\'t join.';
       changeNotice(error);
