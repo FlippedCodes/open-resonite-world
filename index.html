@@ -13,11 +13,16 @@
     // Hide the JS disabled notice
     changeNotice('Redirecting...');
 
-    // Extract sessionID from the current URL path and redirect to steam
+    // Extract sessionID from the current URL path
     const urlParams = new URLSearchParams(window.location.search);
     const sessionID = urlParams.get('sessionID');
-    if (sessionID) {
-      window.location.href = `steam://rungameid/2519830// -Join Auto -Open ${sessionID}`;
+    // send API request to Resonite to get lnl-net link
+    const sessionDetails = await fetch(`https://api.resonite.com/sessions/${sessionID}`, { mode: 'no-cors' });
+    // verify the existence and redirect to steam
+    if (sessionDetails.status) changeNotice(`${sessionDetails.status} - ${sessionDetails.title}`);
+    const lnl = sessionDetails.sessionURLs[0];
+    if (lnl) {
+      window.location.href = `steam://rungameid/2519830//-Open ${lnl}`;
     } else {
       changeNotice(`No sessionID provided! Example: "${`${window.location}`.slice(0, -1)}?sessionID=S-U-h33tology:fitness`);
     }
