@@ -9,7 +9,7 @@ serve({
     // Extract sessionID from the current URL path
     const url = new URL(req.url);
     const sessionID = url.pathname.split("/")[1];
-    if (!sessionID) return new Response(`No sessionID provided! Example: "${`${url}`}S-U-h33tology:fitness"`, { status: 400 });
+    if (!sessionID) return new Response(`No sessionID provided! Example: "${`${url}`.replace('http:', 'https:')}S-U-h33tology:fitness"`, { status: 400 });
     // send API request to Resonite to get lnl-net link
     const sessionDetailsRaw = await fetch(`${process.env.RESONITE_API_ENDPOINT}/${sessionID}`);
     const sessionDetails = await sessionDetailsRaw.json();
