@@ -16,15 +16,26 @@
     // Extract sessionID from the current URL path
     const urlParams = new URLSearchParams(window.location.search);
     const sessionID = urlParams.get('sessionID');
+    if (!sessionID) {
+      const error = `No sessionID provided! Example: "${`${window.location}`.slice(0, -1)}?sessionID=S-U-h33tology:fitness`;
+      changeNotice(error);
+      throw new Error(error);
+    }
     // send API request to Resonite to get lnl-net link
     const sessionDetails = await fetch(`https://api.resonite.com/sessions/${sessionID}`, { mode: 'no-cors' });
     // verify the existence and redirect to steam
-    if (sessionDetails.status) changeNotice(`${sessionDetails.status} - ${sessionDetails.title}`);
+    if (sessionDetails.status) {
+      const error = `${sessionDetails.status} - ${sessionDetails.title}`;
+      changeNotice(error);
+      throw new Error(error);
+    }
     const lnl = sessionDetails.sessionURLs[0];
     if (lnl) {
       window.location.href = `steam://rungameid/2519830//-Open ${lnl}`;
     } else {
-      changeNotice(`No sessionID provided! Example: "${`${window.location}`.slice(0, -1)}?sessionID=S-U-h33tology:fitness`);
+      const error = 'Session doesn\'t have a lnl-net link. Can\'t join.';
+      changeNotice(error);
+      throw new Error(error);
     }
   </script>
 </body>
