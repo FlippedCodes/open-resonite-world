@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+    restart: always
+    environment:
+      RESONITE_API_ENDPOINT: https://imagearchive.flipped.codes/sessions
+    expose:
+      - 3000
+    labels:
+      traefik.enable: true
+      traefik.docker.network: open-resonite-world_exposed
+      traefik.http.routers.${COMPOSE_PROJECT_NAME}-app-embedInfo.rule: Host(`go.fur.earthers.net`)
+      traefik.http.routers.${COMPOSE_PROJECT_NAME}-app-embedInfo.entrypoints: websecure
+      traefik.http.routers.${COMPOSE_PROJECT_NAME}-app-embedInfo.tls.certresolver: le
