@@ -8,6 +8,8 @@ serve({
   async fetch(req) {
     // Extract sessionID from the current URL path
     const url = new URL(req.url);
+    console.log(url);
+    
     const sessionID = url.pathname.split("/")[1];
     if (!sessionID) return new Response(`No sessionID provided! Example: "${`${url}`.replace('http:', 'https:')}S-U-h33tology:fitness"`, { status: 400 });
     // send API request to Resonite to get lnl-net link
