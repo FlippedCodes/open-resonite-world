@@ -63,7 +63,7 @@ serve({
       postData.push(
         ...[
           {
-            property: 'twitter:creator',
+            property: 'og:site_name',
             content: `${recordDetails.ownerName} - ${stringCleanup(recordDetails.name)}`,
           },
           {
