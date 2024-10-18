@@ -4,7 +4,7 @@ services:
       context: .
     restart: always
     environment:
-      RESONITE_API_ENDPOINT: https://api.resonite.com/sessions
+      RESONITE_API_ENDPOINT: https://api.resonite.com
     expose:
       - 3000
     labels:
