@@ -84,16 +84,8 @@ serve({
     ${heads}
   </head>
   <body>
-
-    ${
-      steamLink
-        ? `
-      <script> window.location.href = "${steamLink}" </script>
-      <pre>JS disabled! <a href="${steamLink}">Click here to get redirected to Steam.</a></pre>
-    `
-        : '<pre>Unable to redirect...</pre>'
-    }
-    
+    <script> window.location.href = "${steamLink}" </script>
+    <pre>JS disabled! <a href="${steamLink}">Click here to get redirected to Steam.</a></pre>
   </body>
 </html>
   `;
