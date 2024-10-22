@@ -68,7 +68,7 @@ serve({
           },
           {
             property: 'twitter:description',
-            content: recordDetails.description,
+            content: recordDetails.description ? recordDetails.description : '',
           },
         ]
       );
